@@ -1,0 +1,53 @@
+#######################################
+# Syntax Coloring Map Servo
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Servo	KEYWORD1	UPDIUart_Class
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+begin	KEYWORD2
+end	KEYWORD2
+rxLast	KEYWORD2
+rxError	KEYWORD2
+buffer	KEYWORD2
+BeginTransaction	KEYWORD2
+EndTransaction	KEYWORD2
+BREAK	KEYWORD2
+SEND	KEYWORD2
+RECV	KEYWORD2
+START	KEYWORD2
+STOP	KEYWORD2
+RESET	KEYWORD2
+LDCS	KEYWORD2
+STCS	KEYWORD2
+LD8	KEYWORD2
+LD16	KEYWORD2
+LDS8	KEYWORD2
+ST8	KEYWORD2
+ST16	KEYWORD2
+STS8	KEYWORD2
+LDSIB	KEYWORD2
+START_USERROW	KEYWORD2
+FINAL_USERROW	KEYWORD2
+NVM_WAIT	KEYWORD2
+NVM_CMD	KEYWORD2
+ERASE_CHIP	KEYWORD2
+ST_FUSE	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+UPDI_BREAK_TIME	LITERAL1
+UPDI_SYNCH	LITERAL1
+UPDI_ACK	LITERAL1
+UPDI_STAT_RXCIF	LITERAL1
+UPDI_STAT_BUFOVF	LITERAL1
+UPDI_STAT_FERR	LITERAL1
+UPDI_STAT_PERR	LITERAL1
