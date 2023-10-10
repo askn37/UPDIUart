@@ -9,7 +9,7 @@
 const char devtype[] = "tinyAVR";
 
 /* Base address */
-#define SIGROW_BASE	 0x1100
+#define SIGROW_BASE  0x1100
 #define FUSE_BASE    0x1280
 #define USERROW_BASE 0x1300
 #define EEPROM_BASE  0x1400
@@ -24,18 +24,18 @@ const char devtype[] = "tinyAVR";
 
 /* SIGROW1,2 support list */
 struct sigrow_t {
-  const uint8_t sigrow0;			// 0x1E only
-  const uint8_t sigrow1;			// memory size in series
-  const uint8_t sigrow2;			// product
-  const uint8_t bootcode;			// BOOTCODE sector size : 0 is disable
-  const uint8_t urow_size;		// 0x20 or 0x40
-  const uint8_t eeprom_pages;	// * eeprom_psize units
-  const uint16_t flash_pages;	// * flash_psize units
-  const uint16_t sram_base;		// x flash_psize
+  const uint8_t sigrow0;      // 0x1E only
+  const uint8_t sigrow1;      // memory size in series
+  const uint8_t sigrow2;      // product
+  const uint8_t bootcode;     // BOOTCODE sector size : 0 is disable
+  const uint8_t urow_size;    // 0x20 or 0x40
+  const uint8_t eeprom_pages; // * eeprom_psize units
+  const uint16_t flash_pages; // * flash_psize units
+  const uint16_t sram_base;   // x flash_psize
 };
 const sigrow_t sigrow[] = {
-  {0x1e, 0x95, 0x21, 0x02, 0x20, 0x04, 0x0100, 0x3800},	// ATtiny3216
-  {0x1e, 0x95, 0x22, 0x02, 0x20, 0x04, 0x0100, 0x3800}	// ATtiny3217
+  {0x1e, 0x95, 0x21, 0x02, 0x20, 0x04, 0x0100, 0x3800}, // ATtiny3216
+  {0x1e, 0x95, 0x22, 0x02, 0x20, 0x04, 0x0100, 0x3800}  // ATtiny3217
 };
 
 /* NVM FUSE */

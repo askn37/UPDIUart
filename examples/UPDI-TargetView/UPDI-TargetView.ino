@@ -23,9 +23,9 @@ UPDIUart_Class UPDI(&USART1, PIN_HWSERIAL1_TX, false);
 #endif
 
 struct dev_type_t {
-  uint8_t sernum0;	// SERNUM0 base addr
-  uint8_t sernumx;	// SERNUMx length
-  uint8_t fuse;			// Disable CRC, Enable UPDI
+  uint8_t sernum0;  // SERNUM0 base addr
+  uint8_t sernumx;  // SERNUMx length
+  uint8_t fuse;     // Disable CRC, Enable UPDI
 };
 
 dev_type_t dev_type[] = {
@@ -39,7 +39,7 @@ enum dev_type_e { TINY, MEGA, AVRD };
 struct updi_target_t {
   uint8_t updirev;
   uint8_t cfg_type;
-  uint8_t devid1;		/* devid0 == 0x1e */
+  uint8_t devid1;   /* devid0 == 0x1e */
   uint8_t devid2;
   const char *devname;
 };

@@ -15,7 +15,7 @@ const static uint8_t urowwrite_key[10] = { UPDI_SYNCH, UPDI_KEY_64, 0x65, 0x74, 
 
 void UPDIUart_Class::begin (long baud) {
   if (baud > (F_CPU >> 4)) baud = F_CPU >> 4;
-  int32_t baud_setting = (((F_CPU << 4) / baud) + 1) >> 1;	// RXMODE=CLK2X
+  int32_t baud_setting = (((F_CPU << 4) / baud) + 1) >> 1;  // RXMODE=CLK2X
   int8_t sigrow_val = (FUSE.OSCCFG & FUSE_FREQSEL_gm) == FUSE_FREQSEL1_bm ? SIGROW.OSC20ERR3V : SIGROW.OSC16ERR3V;
   baud_setting += (baud_setting * sigrow_val) >> 10;
   _break_us = 25000000 / baud;
@@ -34,7 +34,7 @@ void UPDIUart_Class::begin (long baud) {
                               | USART_RXEN_bm               /* Receiver Enable        */
                               | USART_RXMODE_CLK2X_gc;      /* Receiver Mode : DOUBLE */
     (*_hwserial_module).BAUD  = (uint16_t) baud_setting;    /* Master baudrate          : baud         */
-    (*_hwserial_module).CTRLC = USART_CMODE_ASYNCHRONOUS_gc	/* USART Communication Mode : ASYNCHRONOUS */
+    (*_hwserial_module).CTRLC = USART_CMODE_ASYNCHRONOUS_gc /* USART Communication Mode : ASYNCHRONOUS */
                               | USART_PMODE_EVEN_gc         /* Parity Mode              : EVEN         */
                               | USART_SBMODE_2BIT_gc        /* Stop Bit Mode            : 2BIT         */
                               | USART_CHSIZE_8BIT_gc;       /* Character Size           : 8BIT         */
@@ -331,7 +331,7 @@ bool UPDIUart_Class::ENABLE_NVMPROG (void) {
   BeginTransaction();
   SEND((uint8_t*)nvmprog_key, sizeof(nvmprog_key));
   SEND((uint8_t*)ldcs_key_stat, sizeof(ldcs_key_stat));
-  c = RECV();                               		// UPDI_CS_ASI_KEY_STATUS
+  c = RECV();                                   // UPDI_CS_ASI_KEY_STATUS
   if (c < 0 || (c & 0x10) == 0) return false;   // 0x10:NVMPROG check
   RESET();
   uint32_t ms = millis();

@@ -11,9 +11,9 @@
 #include <UPDIUart.h>
 UPDIUart_Class UPDI(&USART1, PIN_HWSERIAL1_TX, false);
 
-#include "bootcode_megaAVR0.h"			// megaAVR ATmega8/16/32/48,08/09
-// #include "bootcode_tinyAVR1_x12.h"	// tinyAVR1 ATtiny412 without optiboot
-// #include "bootcode_tinyAVR1_xyz.h"	// tinyAVR1 ATtiny3216/3217
+#include "bootcode_megaAVR0.h"      // megaAVR ATmega8/16/32/48,08/09
+// #include "bootcode_tinyAVR1_x12.h"  // tinyAVR1 ATtiny412 without optiboot
+// #include "bootcode_tinyAVR1_xyz.h"  // tinyAVR1 ATtiny3216/3217
 
 #ifndef CONSOLE_BAUD
 #define CONSOLE_BAUD 9600
@@ -26,7 +26,7 @@ UPDIUart_Class UPDI(&USART1, PIN_HWSERIAL1_TX, false);
 #error megaAVR/tinyAVR platform only
 #endif
 
-sigrow_t *signature = (sigrow_t*)&sigrow[0];	// default signature
+sigrow_t *signature = (sigrow_t*)&sigrow[0];  // default signature
 
 void setup (void) {
   Serial.begin(CONSOLE_BAUD); delay(200);
@@ -53,7 +53,7 @@ void loop (void) {
     }
     Serial.println(" U:Write USERROW");
     Serial.println("[Other:Reload UPDI STATUS]");
-    while (!Serial.available());	// key in wait
+    while (!Serial.available());  // key in wait
     char c = Serial.read();
     Serial.print("Selcted:"); Serial.println(c);
     while (Serial.available()) Serial.read();
