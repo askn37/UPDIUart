@@ -12,8 +12,8 @@
 UPDIUart_Class UPDI(&USART1, PIN_HWSERIAL1_TX, false);
 
 #include "bootcode_megaAVR0.h"      // megaAVR ATmega8/16/32/48,08/09
-// #include "bootcode_tinyAVR1_x12.h"  // tinyAVR1 ATtiny412 without optiboot
-// #include "bootcode_tinyAVR1_xyz.h"  // tinyAVR1 ATtiny3216/3217
+// #include "bootcode_tinyAVR_8pin.h"  // tinyAVR-0/1 8pin only
+// #include "bootcode_tinyAVR_14pin.h" // tinyAVR-0/1/2 14/20/24pin
 
 #ifndef CONSOLE_BAUD
 #define CONSOLE_BAUD 9600
@@ -398,7 +398,7 @@ void write_userrow (void) {
   uint8_t store[64];
   for (uint8_t i = 0; i < signature->urow_size; i++) store[i] = ~0;
   memcpy(store, userrow, len);
-  UPDI.STS8(signature->sram_base, store, signature->urow_size);
+  UPDI.STS8(USERROW_BASE, store, signature->urow_size);
   if (!UPDI.FINAL_USERROW()) {
     Serial.println("USERROW final failed");
     return;
